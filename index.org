@@ -1,0 +1,45 @@
+#+TITLE: Solutions for Computation
+#+LANGUAGE: zh
+#+HTML_DOCTYPE: <!DOCTYPE html>
+#+HTML_HEAD: <link href="css/readtheorg.css" rel="stylesheet" type="text/css" />
+#+AUTHOR: sylsaint
+#+EMAIL: mailto:limerary@hotmail.com
+
+#+LINK: gh    https://github.com/
+#+LINK: rfc   https://tools.ietf.org/html/
+#+LINK: w3    https://w3.org/TR/
+#+LINK: wiki  https://en.wikipedia.org/wiki/
+
+#+BEGIN_COMMENT
+Each major section of this document is defined in its own file.
+
+You can jump to each file by moving the cursor on an "#+include" line
+and typing =C-c '= Note: There is *no requirement* to split, but large
+org-mode files can become quite slow to edit, so separate sections help
+keeping things fluid...
+#+END_COMMENT
+** chapter 1
+*** M_1 and M_2
+    + q_1
+    + M_1: {q_2}, M_2: {q_4}
+    + M_1: q_1 -> q_2 -> q_3 -> q_1 -> q_1, M_2: q_1 -> q_1 -> q_1 -> q_2 -> q_4
+    + M_1: yes, M_2: no
+    + M_1: no, M_2: yes
+*** formal description
+    1. {Q={q_1, q_2, q_3}, E={a, b}, q_1, {q_2}, transition}
+       | state | a   | b   |
+       | q_1   | q_2 | q_1 |
+       | q_2   | q_3 | q_3 |
+       | q_3   | q_2 | q_1 |
+    2. {Q={q_1, q_2, q_3, q_4}, E={a, b}, q_1, {q_1, q_4}, transition}
+       | state | a   | b   |
+       | q_1   | q_1 | q_2 |
+       | q_2   | q_3 | q_4 |
+       | q_3   | q_2 | q_1 |
+       | q_4   | q_3 | q_4 |
+*** diagram of DFA
+[[file:chapter1/1.3.png]]
+
+*** intersection of two languages
+
+    1.
