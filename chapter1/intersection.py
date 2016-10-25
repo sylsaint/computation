@@ -45,6 +45,16 @@ class Automata(object):
     def _get_ttable(self):
         return self.ttable
 
+    def _get_full_ttable(self):
+        thead = ['']
+        thead.extend(self.sigma)
+        full_tbl = [thead]
+        for idx, elem in enumerate(self.ttable):
+            tmp = [self.states[idx]]
+            tmp.extend(elem)
+            full_tbl.append(tmp)
+        return full_tbl
+
     def _get_start(self):
         return self.start
 
@@ -63,7 +73,7 @@ def intersection(auto1, auto2):
     sigma.extend(auto1._get_sigma())
     start = (auto1._get_start(), auto2._get_start())
     final = (auto1._get_final(), auto2._get_final())
-    
+ 
     ttable = []
     for idx, st in enumerate(states):
         ttable.append([])
