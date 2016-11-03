@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-10-25 周二 23:43 -->
+<!-- 2016-11-03 周四 22:17 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>Solutions for Computation</title>
@@ -147,7 +147,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline8">1. chapter 1</a>
+<li><a href="#orgheadline14">1. chapter 1</a>
 <ul>
 <li><a href="#orgheadline1">1.1. M<sub>1</sub> and M<sub>2</sub></a></li>
 <li><a href="#orgheadline2">1.2. formal description</a></li>
@@ -156,14 +156,20 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline5">1.5. complement of language</a></li>
 <li><a href="#orgheadline6">1.6. diagram of DFAs</a></li>
 <li><a href="#orgheadline7">1.7. diagram of NFAs with specified states</a></li>
+<li><a href="#orgheadline8">1.8. recognize union of languages</a></li>
+<li><a href="#orgheadline9">1.9. recognize concatenation of languages</a></li>
+<li><a href="#orgheadline10">1.10. recognize start of languages</a></li>
+<li><a href="#orgheadline11">1.11. NFA convertion</a></li>
+<li><a href="#orgheadline12">1.12. DFA with five states</a></li>
+<li><a href="#orgheadline13">1.13. 1s separated by odd symbols</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">1</span> chapter 1</h2>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">1</span> chapter 1</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> M<sub>1</sub> and M<sub>2</sub></h3>
@@ -341,11 +347,117 @@ for the JavaScript code in this tag.
 </ol>
 </div>
 </div>
+
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">1.8</span> recognize union of languages</h3>
+<div class="outline-text-3" id="text-1-8">
+<ol class="org-ol">
+<li><img src="chapter1/1.8.1.png" alt="1.8.1.png"></li>
+<li><img src="chapter1/1.8.2.png" alt="1.8.2.png"></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">1.9</span> recognize concatenation of languages</h3>
+<div class="outline-text-3" id="text-1-9">
+<ol class="org-ol">
+<li><img src="chapter1/1.9.1.png" alt="1.9.1.png"></li>
+<li><img src="chapter1/1.9.2.png" alt="1.9.2.png"></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.10</span> recognize start of languages</h3>
+<div class="outline-text-3" id="text-1-10">
+<ol class="org-ol">
+<li><img src="chapter1/1.10.1.png" alt="1.10.1.png"></li>
+<li><img src="chapter1/1.10.2.png" alt="1.10.2.png"></li>
+<li><img src="chapter1/1.10.3.png" alt="1.10.3.png"></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.11</span> NFA convertion</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+Question: Prove that every NFA can be converted to an equivalent one
+that has a single accept state
+</p>
+
+<p>
+Answer: Asume the NFA is N = {Q, &Sigma;, &delta;, q<sub>0</sub>, F}, F is the set of final states.
+Thus, we can construct a new NFA N<sup>1</sup> = {Q, &Sigma;, &delta;<sup>1</sup>, q<sub>0</sub>, F<sup>1</sup>}, the represent
+is as follows:
+</p>
+
+<ol class="org-ol">
+<li>F<sup>1</sup> = {q<sub>f</sub>}</li>
+
+<li>&delta;<sup>1</sup>(q, a) = &delta;(q, a), q belongs to Q and q not belong to F</li>
+
+<li>&delta;<sup>1</sup>(q, &epsilon;) = &delta;(q, &epsilon;) U {q<sub>f</sub>},         q belongs to F, q<sub>f</sub> belongs to F<sup>1</sup></li>
+</ol>
+
+<p>
+Now, we can prove it in bidirection:
+</p>
+
+<p>
+==&gt; w is any string accepted by NFA N, so we can conclude that &delta;(w, a) belongs to
+F. according the transition function above, w is accepted by NFA N<sup>1</sup>.
+</p>
+
+<p>
+&lt;== w is any string accepted by NFA N<sup>1</sup>, and w = w&epsilon;,
+according to formula &delta;<sup>1</sup>(q, &epsilon;) = q<sub>f</sub>, q = &delta;<sup>1</sup>(q<sub>0</sub>, w) = &delta;(q<sub>0</sub>, w)
+belongs to F, so w is also accepted by NFA N.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">1.12</span> DFA with five states</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+It can be descripted by the following:
+D = {odd b's followed by even a's}, now the answer is not correct, ignore it!
+</p>
+
+<p>
+Answer has been fixed, now it's right.
+</p>
+
+
+<div class="figure">
+<p><img src="chapter1/1.12.png" alt="1.12.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">1.13</span> 1s separated by odd symbols</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+First, we should construct a NFA, then convert it to a DFA. this DFA has 7 states, besides, the last three final
+states with all other states pointing at them and no one point out, so we can combine them into one final state.
+</p>
+
+
+<div class="figure">
+<p><img src="chapter1/1.13.png" alt="1.13.png">
+</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: sylsaint</p>
-<p class="date">Created: 2016-10-25 周二 23:43</p>
+<p class="date">Created: 2016-11-03 周四 22:17</p>
 <p class="validation"></p>
 </div>
 </body>
