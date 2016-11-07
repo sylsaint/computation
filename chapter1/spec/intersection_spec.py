@@ -4,9 +4,7 @@ import os
 import pprint
 
 # set current dir's parent dir to the pythonpath
-get_dir = os.path.dirname
-pkg_path = get_dir(get_dir(os.path.abspath(__file__)))
-sys.path.append(pkg_path)
+import set_path
 
 # config pprint
 pp = pprint.PrettyPrinter(indent=4, width=30)
