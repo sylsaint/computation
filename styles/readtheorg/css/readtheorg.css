@@ -792,9 +792,7 @@ hr{
     color:#fcfcfc;
     font-size: 100%;
     margin-bottom:0.809em}
-#table-of-contents::-webkit-scrollbar {
-    display: none;
-}
+
 ul.nav li ul li {
     display: none;
 }
@@ -1085,3 +1083,8 @@ h2.footnotes{
     padding: 9px 12px;
     margin-bottom: 24px;
     font-family:"Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}

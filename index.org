@@ -2,7 +2,7 @@
 #+OPTIONS: tex:t
 #+LANGUAGE: zh
 #+HTML_DOCTYPE: <!DOCTYPE html>
-#+HTML_HEAD: <link href="css/readtheorg.css" rel="stylesheet" type="text/css" />
+#+SETUPFILE: setup/theme-readtheorg-local.setup
 #+AUTHOR: sylsaint
 #+EMAIL: mailto:limerary@hotmail.com
 
@@ -140,4 +140,42 @@ states with all other states pointing at them and no one point out, so we can co
 
 [[file:chapter1/1.13.png]]
 
-***
+*** judgement about closure of language under complement
+
+    1. Show that if M is a DFA that recognizes language B, swapping the accept
+       and nonaccept states in M yields a new DFA recognizing the complement of
+       B. Conclude that the class of regular languages is closed under complemen
+
+       Answer: Assume any DFA M = {Q, \Sigma, \delta, q_0, F}, after swapping states, we get M_c = {Q, \Sigma, \delta, q_0, F_c},
+       F_c = {q | q \in Q - F}. for any w \in \Sigma^* and w \notin F, it will falls in the states of Q - F = F_c, thus,
+       we can conclude that M_c accepts the complement of language LM.
+
+       According the conclusion above, any DFA and it's complement are DFAs, all the languages accepted by DFAs are regular
+       languages, so regular languages are closed under complement.
+
+    2. Show by giving an example that if M is an NFA that recognizes language
+       C, swapping the accept and nonaccept states in M doesn’t necessarily yield
+       a new NFA that recognizes the complement of C. Is the class of languages
+       recognized by NFAs closed under complement? Explain your answer.
+
+       [[file:chapter1/1.14.png]]
+
+       Origin NFA: accepting language containing at least one 0;
+
+       NFA after swapping: accepting language containing (0+1)^*
+
+       Is the class of languages recognized by NFAs closed under complement? Answer: Yes, any NFA is also a NFA after swapping states,
+       because every NFA has an equivalent DFA, so they are all regular languages, thus, languages are closed under complement.
+
+*** closure of RL under the star operation
+
+    [[file:chapter1/1.15.png]]
+
+    The origin accepts the language L = {w | w has (2+3n) 0's and n \in N}. using the construction method proposed by 1.15, it will
+    accepts w = 000 \notin L. So, it fails to prove the Theorem 1.49.
+
+*** convert NFA to DFA
+
+    a. [[file:chapter1/1.16.a.png]]
+    b. [[file:chapter1/1.16.b.png]]
+*** TODO write a program to convert NFA to DFA
