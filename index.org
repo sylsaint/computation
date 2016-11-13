@@ -177,5 +177,61 @@ states with all other states pointing at them and no one point out, so we can co
 *** convert NFA to DFA
 
     a. [[file:chapter1/1.16.a.png]]
+
     b. [[file:chapter1/1.16.b.png]]
-*** TODO write a program to convert NFA to DFA
+
+**** DONE write a program to convert NFA to DFA
+    CLOSED: [2016-11-08 周二 23:27]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2016-11-08 周二 23:27]
+    :END:
+*** NFA recognizing (01 U 001 U 010)^*
+
+    a. [[file:chapter1/1.17.a.png]]
+
+    b. [[file:chapter1/1.17.b.png]]
+
+*** Regular expression generating the languages
+
+#+BEGIN_SRC shell
+    1. ^1(0|1)*0$
+    2. 0*10*10*1[01]*
+    3. [01]*0101[01]*
+    4. [01]{2}1[01]*
+    5. 0([01]{2})*|1([01]{2})*[01]
+    6.
+    7. [01]{0, 5}
+    8.
+    9. (1[01])+
+    10. 000*|1000*|0100*|000*10*
+    11. 0?
+    12. (00)* | 0*10*10*
+    13. (?!.*)
+    14. [01]+
+
+#+END_SRC
+
+*** conver regular expression to NFA
+
+    a. [[file:chapter1/1.19.a.png]]
+
+    b. [[file:chapter1/1.19.b.png]]
+
+    c. [[file:chapter1/1.19.c.png]]
+
+*** give examples of regular expressions
+
+#+BEGIN_SRC python
+
+a. a*b* | ab / aab | ba / bba
+b. a(ab)*b | ab / aabb | a / b
+c. a* U b* | a / b | ab / ba
+d. (aaa)*  | aaa / aaaaaa | b / ba
+e. (a+b)*a(a+b)*b(a+b)*a(a+b)* | aba / abab | ab / ba
+f. aba U bab | aba / bab | aab / b
+g. (\epsilon U a )b | b / ab | aa / bb
+h. (a U ab U bb)(a+b)* | a / ab | ba / bab
+
+#+END_SRC
+
+*** automata to regular expressions

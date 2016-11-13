@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2016-11-04 周五 00:51 -->
+<!-- 2016-11-13 鍛ㄦ棩 00:20 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title>Solutions for Computation</title>
@@ -152,7 +152,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline18">1. chapter 1</a>
+<li><a href="#orgheadline23">1. chapter 1</a>
 <ul>
 <li><a href="#orgheadline1">1.1. M<sub>1</sub> and M<sub>2</sub></a></li>
 <li><a href="#orgheadline2">1.2. formal description</a></li>
@@ -169,16 +169,24 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline13">1.13. 1s separated by odd symbols</a></li>
 <li><a href="#orgheadline14">1.14. judgement about closure of language under complement</a></li>
 <li><a href="#orgheadline15">1.15. closure of RL under the star operation</a></li>
-<li><a href="#orgheadline16">1.16. convert NFA to DFA</a></li>
-<li><a href="#orgheadline17">1.17. <span class="todo TODO">TODO</span> write a program to convert NFA to DFA</a></li>
+<li><a href="#orgheadline17">1.16. convert NFA to DFA</a>
+<ul>
+<li><a href="#orgheadline16">1.16.1. <span class="done DONE">DONE</span> write a program to convert NFA to DFA</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline18">1.17. NFA recognizing (01 U 001 U 010)<sup>*</sup></a></li>
+<li><a href="#orgheadline19">1.18. Regular expression generating the languages</a></li>
+<li><a href="#orgheadline20">1.19. conver regular expression to NFA</a></li>
+<li><a href="#orgheadline21">1.20. give examples of regular expressions</a></li>
+<li><a href="#orgheadline22">1.21. automata to regular expressions</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">1</span> chapter 1</h2>
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">1</span> chapter 1</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> M<sub>1</sub> and M<sub>2</sub></h3>
@@ -529,23 +537,104 @@ accepts w = 000 &notin; L. So, it fails to prove the Theorem 1.49.
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">1.16</span> convert NFA to DFA</h3>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">1.16</span> convert NFA to DFA</h3>
 <div class="outline-text-3" id="text-1-16">
 <p>
 a. <img src="chapter1/1.16.a.png" alt="1.16.a.png">
+</p>
+
+<p>
 b. <img src="chapter1/1.16.b.png" alt="1.16.b.png">
 </p>
 </div>
+
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">1.16.1</span> <span class="done DONE">DONE</span> write a program to convert NFA to DFA</h4>
+<div class="outline-text-4" id="text-1-16-1">
 </div>
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">1.17</span> <span class="todo TODO">TODO</span> write a program to convert NFA to DFA</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">1.17</span> NFA recognizing (01 U 001 U 010)<sup>*</sup></h3>
+<div class="outline-text-3" id="text-1-17">
+<p>
+a. <img src="chapter1/1.17.a.png" alt="1.17.a.png">
+</p>
+
+<p>
+b. <img src="chapter1/1.17.b.png" alt="1.17.b.png">
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">1.18</span> Regular expression generating the languages</h3>
+<div class="outline-text-3" id="text-1-18">
+<div class="org-src-container">
+
+<pre class="src src-shell">1. ^1<span style="color: #657b83;">(</span>0|1<span style="color: #657b83;">)</span>*0$
+2. 0*10*10*1<span style="color: #657b83;">[</span>01<span style="color: #657b83;">]</span>*
+3. <span style="color: #657b83;">[</span>01<span style="color: #657b83;">]</span>*0101<span style="color: #657b83;">[</span>01<span style="color: #657b83;">]</span>*
+4. <span style="color: #657b83;">[</span>01<span style="color: #657b83;">]{</span>2<span style="color: #657b83;">}</span>1<span style="color: #657b83;">[</span>01<span style="color: #657b83;">]</span>*
+5. 0<span style="color: #657b83;">(</span><span style="color: #2aa198;">[</span>01<span style="color: #2aa198;">]{</span>2<span style="color: #2aa198;">}</span><span style="color: #657b83;">)</span>*|1<span style="color: #657b83;">(</span><span style="color: #2aa198;">[</span>01<span style="color: #2aa198;">]{</span>2<span style="color: #2aa198;">}</span><span style="color: #657b83;">)</span>*<span style="color: #657b83;">[</span>01<span style="color: #657b83;">]</span>
+6.
+7. <span style="color: #657b83;">[</span>01<span style="color: #657b83;">]{</span>0, 5<span style="color: #657b83;">}</span>
+8.
+<span style="color: #b58900;">9.</span> <span style="color: #657b83;">(</span>1<span style="color: #2aa198;">[</span>01<span style="color: #2aa198;">]</span><span style="color: #657b83;">)</span>+
+10. 000*|1000*|0100*|000*10*
+11. 0?
+<span style="color: #b58900;">12.</span> <span style="color: #657b83;">(</span>00<span style="color: #657b83;">)</span>* | 0*10*10*
+<span style="color: #b58900;">13.</span> <span style="color: #657b83;">(</span>?!.*<span style="color: #657b83;">)</span>
+14. <span style="color: #657b83;">[</span>01<span style="color: #657b83;">]</span>+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">1.19</span> conver regular expression to NFA</h3>
+<div class="outline-text-3" id="text-1-19">
+<p>
+a. <img src="chapter1/1.19.a.png" alt="1.19.a.png">
+</p>
+
+<p>
+b. <img src="chapter1/1.19.b.png" alt="1.19.b.png">
+</p>
+
+<p>
+c. <img src="chapter1/1.19.c.png" alt="1.19.c.png">
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">1.20</span> give examples of regular expressions</h3>
+<div class="outline-text-3" id="text-1-20">
+<div class="org-src-container">
+
+<pre class="src src-python">a. a*b* | ab / aab | ba / bba
+b. a<span style="color: #657b83;">(</span>ab<span style="color: #657b83;">)</span>*b | ab / aabb | a / b
+c. a* U b* | a / b | ab / ba
+d. <span style="color: #657b83;">(</span>aaa<span style="color: #657b83;">)</span>*  | aaa / aaaaaa | b / ba
+e. <span style="color: #657b83;">(</span>a+b<span style="color: #657b83;">)</span>*a<span style="color: #657b83;">(</span>a+b<span style="color: #657b83;">)</span>*b<span style="color: #657b83;">(</span>a+b<span style="color: #657b83;">)</span>*a<span style="color: #657b83;">(</span>a+b<span style="color: #657b83;">)</span>* | aba / abab | ab / ba
+f. aba U bab | aba / bab | aab / b
+g. <span style="color: #657b83;">(</span>\epsilon U a <span style="color: #657b83;">)</span>b | b / ab | aa / bb
+h. <span style="color: #657b83;">(</span>a U ab U bb<span style="color: #657b83;">)(</span>a+b<span style="color: #657b83;">)</span>* | a / ab | ba / bab
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">1.21</span> automata to regular expressions</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: sylsaint</p>
-<p class="date">Created: 2016-11-04 周五 00:51</p>
+<p class="date">Created: 2016-11-13 鍛ㄦ棩 00:20</p>
 <p class="validation"></p>
 </div>
 </body>

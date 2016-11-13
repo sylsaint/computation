@@ -1,0 +1,24 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file d:/github/computation/index.org
+
+
+* Archive
+
+** convert NFA to DFA
+   :PROPERTIES:
+   :ARCHIVE_TIME: 2016-11-08 周二 23:55
+   :ARCHIVE_FILE: d:/github/computation/index.org
+   :ARCHIVE_OLPATH: chapter 1
+   :ARCHIVE_CATEGORY: index
+   :END:
+
+   a. [[file:chapter1/1.16.a.png]]
+
+   b. [[file:chapter1/1.16.b.png]]
+*** DONE write a program to convert NFA to DFA
+    CLOSED: [2016-11-08 周二 23:27]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2016-11-08 周二 23:27]
+   :END:
