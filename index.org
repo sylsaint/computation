@@ -235,3 +235,83 @@ h. (a U ab U bb)(a+b)* | a / ab | ba / bab
 #+END_SRC
 
 *** automata to regular expressions
+
+*** comment recognizer
+
+a. [[file:chapter1/1.22.png]]
+
+b. regular expression: 
+
+#+BEGIN_SRC shell
+/#(a+b+/+#(a+b))*#/
+#+END_SRC
+
+*** Prove that B = B+ iff BB belongs to B
+
+=> if B = B+, then language constructed by this grammar is L(B) = L(B + BB + BBB + ...) = L(B) + L(BB) + ...,
+then BB belongs to B;
+
+<= if BB belongs to B, then BBB belongs to BB, so BBB belongs to B. Thus by induction, (B)_n belongs to B(n>=1).
+so B = B+.
+
+*** Finite State Transducer(FST)
+
+#+BEGIN_SRC shell
+a. T1: 011 -> 000
+b. T1: 211 -> 111
+c. T1: 121 -> 011
+d. T1: 0202 -> 0101
+e. T2: b -> 1
+f. T2: bbab -> 1111
+g. T2: bbbbbb -> 110110
+h. T2: e -> e
+#+END_SRC
+
+*** FST formal definition
+
+FST is a 5-tuple whitch is composed of {Q, \Sigma, \delta, q_0, \Gamma}
+#+BEGIN_SRC shell
+Q: the states set of FST
+\Sigma: the inputs set of FST
+\delta : Q X \Sigma -> Q X \Gamma
+q_0: the start state of FST
+\Gamma: the outputs set of FST
+#+END_SRC
+
+*** using FST to give definition
+
+1. T1 = {Q, \Sigma, \delta, q_0, \Gamma}
+#+BEGIN_SRC shell
+Q: {q1, q2}
+\Sigma: {0, 1, 2}
+\Gamma: {0, 1}
+\delta: Q X \Sigma -> Q X \Gamma
+q0: q1
+#+END_SRC
+
+1. T2 = {Q, \Sigma, \delta, q_0, \Gamma}
+#+BEGIN_SRC shell
+Q: {q1, q2, q3}
+\Sigma: {a, b}
+\Gamma: {0, 1}
+\delta: Q X \Sigma -> Q X \Gamma
+q0: q1
+#+END_SRC
+
+*** using FST to make diagram of specific FST
+
+[[file:chapter1/1.27.png]]
+
+*** convert regular expression to NFA
+
+a. a(abb)^*\cup b
+
+[[file:chapter1/1.28.a.png]]
+
+b. a^{+} \cup (ab)^{+}
+
+[[file:chapter1/1.28.b.png]]
+
+c. (a\cup b^{+})a^{+}b^{+}
+
+[[file:chapter1/1.28.c.png]]
