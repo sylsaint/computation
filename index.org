@@ -315,3 +315,30 @@ b. a^{+} \cup (ab)^{+}
 c. (a\cup b^{+})a^{+}b^{+}
 
 [[file:chapter1/1.28.c.png]]
+
+*** pumping lemma
+
+a. A_1 = {0^{n}1^{n}2^{n} | n >= 0}
+
+Assume w \in A_1 and A_1 is regular. Thus, w = xyz, |x| < n, |xy| <= n.
+Now, according pumping lemma, xy^{k}z \in A_1(k >= 0). if we let k = 0,
+then w = xz = 0^{m}1^{n}2^{n} \notin A_1, so we can conclude that A_1
+is not regular.
+
+b. A_2 = {www | w \in {a,b}^*}
+
+Assume w is a^n, we can get that w^' = a^{n}a^{n}a^{n}. Now, w^' is the same
+as A_1 above, so, by contradiction, A_2 is not regular.
+
+c. A_3 = {a^{2^n} | n >= 0}
+
+Assume n = 2m, w = a^{2^{2m}} \in A_3, now let n = m, then w = a^{2^{2n}}.
+According to pumping lemma, w = xyz, |x| < 2^n, |xy| <= 2^n and w = xy^{k}z(k>=0) \in A_3.
+so let k = 0, w = xz = a^{2^m}a^{2^n} = a^{2^{m+n}}(m<n) \notin A_3. Thus,
+A_3 is not regular.
+
+*** Finding error in proving
+
+Assume s = 0^{p}1^{p}, w = xy^{k}z(y>=0) \in L(s), if y \neq 1, then w \notin L(s), 
+but w \in L(0^{*}1^{*}), the proving method is wrong.
+
